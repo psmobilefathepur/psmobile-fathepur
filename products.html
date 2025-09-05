@@ -3,65 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PS MOBILE - Products</title>
+  <title>Products – PS MOBILE</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f8f8f8;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .products-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+    .product-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      width: 250px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .product-card h3 {
+      margin: 10px 0 5px;
+    }
+    .product-card p {
+      font-size: 14px;
+      color: #555;
+    }
+    .product-card:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-<header class="header">
-  <div class="container">
-    <h1 class="logo">PS <span>MOBILE</span></h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="contact">
-      <a href="tel:+919887061896">+91 98870 61896</a>
-    </div>
-  </div>
-</header>
 
-<main class="container">
-  <h2>Our Products</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>New Phone 1</h3>
-      <p>Latest model with warranty</p>
-    </div>
-    <div class="card">
-      <h3>New Phone 2</h3>
-      <p>High performance smartphone</p>
-    </div>
-    <div class="card">
-      <h3>Refurbished Phone</h3>
-      <p>Certified refurbished device</p>
-    </div>
-    <div class="card">
-      <h3>Accessories</h3>
-      <p>Chargers, covers, and more</p>
-    </div>
-  </div>
-</main>
+  <header>
+    <h1>Our Products – PS MOBILE</h1>
+  </header>
 
-<footer>
-  <div class="container footer-grid">
-    <div>
-      <h4>PS MOBILE</h4>
-      <p>Phones • Accessories • Repairs</p>
-    </div>
-    <div>
-      <h4>Quick Links</h4>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </div>
-  <p class="copyright">© 2025 PS MOBILE</p>
-</footer>
+  <section class="products-grid" id="products-container">
+    <!-- Products will load dynamically here -->
+  </section>
 
-<a class="whatsapp-fab" href="https://wa.me/919887061896" target="_blank">Chat on WhatsApp</a>
-<script src="app.js"></script>
+  <script src="products.js"></script>
 </body>
 </html>

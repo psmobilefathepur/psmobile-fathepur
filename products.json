@@ -1,0 +1,20 @@
+[
+  {
+    "brand": "Vivo",
+    "model": "X200",
+    "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...X200_BASE64_CODE...",
+    "description": "Powered by Dimensity 9000, featuring a 50 MP triple-camera system — flagship performance at ~₹59,999."
+  },
+  {
+    "brand": "Oppo",
+    "model": "Reno14 Pro 5G",
+    "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...RENO14_BASE64_CODE...",
+    "description": "Premium mid-range with AI-powered imaging, 50 MP Sony sensor, 6,200 mAh battery, and 120 Hz OLED display."
+  },
+  {
+    "brand": "Infinix",
+    "model": "Note 50s 5G Plus",
+    "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD...INFINIX_BASE64_CODE...",
+    "description": "Dimensity 7300 chip, AMOLED 144 Hz display, 50 MP camera — balanced specs around ₹15,900."
+  }
+]
