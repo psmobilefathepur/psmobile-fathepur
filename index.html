@@ -1,94 +1,317 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PS MOBILE - Home</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PS MOBILE — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#e41e2b; /* Reliance-style red */
+      --dark:#0f172a;
+      --muted:#6b7280;
+      --bg:#f6f7fb;
+      --card:#ffffff;
+      --accent:#0ea5e9;
+      --radius:14px;
+      --shadow:0 6px 18px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:#0b1220}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    /* ===== Top info bar ===== */
+    .topbar{background:var(--dark);color:#fff;font-size:12px}
+    .container{max-width:1240px;margin:0 auto;padding:0 16px}
+    .topbar .row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;gap:10px}
+    .topbar .links{display:flex;gap:14px;flex-wrap:wrap}
+    .topbar a{opacity:.9}
+    .topbar a:hover{opacity:1}/* ===== Header ===== */
+header{background:#fff;box-shadow:var(--shadow);position:sticky;top:0;z-index:50}
+.header-inner{display:flex;align-items:center;gap:14px;padding:10px 0}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--brand);font-size:22px;letter-spacing:.2px}
+.search{flex:1;display:flex;align-items:center;border:1px solid #e5e7eb;border-radius:999px;padding:8px 12px;background:#f9fafb}
+.search input{flex:1;border:0;outline:0;background:transparent;font-size:14px}
+.search button{border:0;background:var(--brand);color:#fff;padding:9px 14px;border-radius:999px;font-weight:600}
+.quick{display:flex;align-items:center;gap:16px}
+.quick a{display:flex;align-items:center;gap:6px;font-size:14px;color:#111827}
+.icon{width:18px;height:18px;display:inline-block}
+
+/* ===== Category rail ===== */
+.cats{background:#fff;border-top:1px solid #f0f1f5}
+.cats .rail{display:flex;gap:22px;overflow:auto hidden;padding:12px 0}
+.cat-pill{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:999px;border:1px solid #eef0f5;background:#fff;white-space:nowrap}
+.cat-pill:hover{box-shadow:var(--shadow)}
+
+/* ===== Hero slider ===== */
+.hero{position:relative}
+.slides{position:relative;height:360px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;display:grid;grid-template-columns:1.1fr .9fr}
+.slide.active{opacity:1}
+.slide .copy{display:flex;flex-direction:column;justify-content:center;padding:36px;background:linear-gradient(90deg,#ffffff 0%, #ffffffcc 70%, transparent 100%)}
+.slide h2{margin:0 0 8px;font-size:42px;line-height:1.1}
+.badge{display:inline-block;background:#0b9c39;color:#fff;padding:6px 10px;border-radius:999px;font-weight:700;font-size:12px;margin-bottom:8px}
+.price{font-size:28px;font-weight:800;margin:8px 0 14px}
+.cta{display:flex;gap:10px}
+.btn{border:0;border-radius:999px;padding:10px 16px;font-weight:700}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.ghost{background:#fff;border:1px solid #e5e7eb}
+.slide .art{position:relative}
+.slide .art img{object-fit:cover;width:100%;height:100%}
+.dots{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;display:flex;gap:8px}
+.dot{width:8px;height:8px;border-radius:999px;background:#d1d5db;cursor:pointer}
+.dot.active{background:var(--brand)}
+
+/* ===== Offer tiles ===== */
+.tiles{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tile{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;display:flex;align-items:center;gap:14px}
+.tile h4{margin:0 0 4px}
+.tile p{margin:0;color:var(--muted);font-size:13px}
+
+/* ===== Sections ===== */
+.section{margin:28px 0}
+.section h3{margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:12px;display:flex;flex-direction:column}
+.card img{aspect-ratio:1/1;object-fit:cover;border-radius:10px}
+.card h5{margin:10px 0 4px;font-size:14px}
+.price-row{display:flex;align-items:center;justify-content:space-between}
+.price-row .p{font-weight:800}
+.price-row .buy{font-weight:700;color:var(--brand)}
+
+/* ===== Footer ===== */
+footer{margin-top:36px;background:#0b1022;color:#cbd5e1}
+.foot{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:18px;padding:28px 0}
+.foot h6{margin:0 0 10px;color:#fff}
+.copyright{border-top:1px solid #1f2540;padding:12px 0;color:#94a3b8;font-size:13px}
+
+/* ===== Mobile ===== */
+@media (max-width: 980px){
+  .slide{grid-template-columns:1fr}
+  .slides{height:auto}
+  .slide .copy{padding:24px}
+  .slide h2{font-size:30px}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .tiles{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width: 560px){
+  .header-inner{flex-wrap:wrap}
+  .quick{width:100%;justify-content:space-between}
+  .grid{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr}
+}
+
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
+  <!-- Top mini bar -->
+  <div class="topbar">
     <div class="container">
-      <h1 class="logo">PS <span>MOBILE</span></h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
+      <div class="row">
+        <div>📍 <strong>PS MOBILE</strong> • XXW6+9PR, Bawadi Gate, Fatehpur, Rajasthan 332301</div>
+        <div class="links">
+          <a href="tel:+919887061896">📞 +91 98870 61896</a>
+          <a href="https://wa.me/919887061896" target="_blank">🟢 WhatsApp</a>
+          <a href="mailto:psmobileshop98@gmail.com">✉ Email</a>
+        </div>
+      </div>
+    </div>
+  </div>  <!-- Header -->  <header>
+    <div class="container header-inner">
+      <div class="logo">PS&nbsp;MOBILE</div>
+      <div class="search">
+        <input id="search" placeholder="Search products & brands"/>
+        <button onclick="alert('Search coming soon!')">Search</button>
+      </div>
+      <nav class="quick">
+        <a href="#orders">🧾 Orders</a>
+        <a href="#wishlist">💖 Wishlist</a>
+        <a href="#cart">🛒 Cart</a>
+        <a href="#login">👤 Login</a>
       </nav>
-      <div class="contact">
-        <a href="tel:+919887061896">+91 98870 61896</a>
+    </div>
+    <div class="cats">
+      <div class="container">
+        <div class="rail">
+          <a class="cat-pill" href="#sale">🔥 Super Saver Sale</a>
+          <a class="cat-pill" href="#mobiles">📱 Mobiles</a>
+          <a class="cat-pill" href="#tablets">💊 Tablets</a>
+          <a class="cat-pill" href="#audio">🎧 Audio</a>
+          <a class="cat-pill" href="#laptops">💻 Laptops</a>
+          <a class="cat-pill" href="#watches">⌚ Smart Watches</a>
+          <a class="cat-pill" href="#tv">📺 Televisions</a>
+          <a class="cat-pill" href="#ac">❄ Air Conditioners</a>
+          <a class="cat-pill" href="#accessories">🔌 Accessories</a>
+        </div>
       </div>
     </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h2>Welcome to PS MOBILE</h2>
-      <p>Your one-stop shop for phones, accessories, and repairs in Fatehpur.</p>
-      <a href="products.html" class="btn">Shop Now</a>
-    </div>
-  </section>
-
-  <!-- Products/Services Section -->
-  <section class="features">
-    <div class="container grid">
-      <div class="card">
-        <h3>New Phones</h3>
-        <p>Latest models from top brands.</p>
-      </div>
-      <div class="card">
-        <h3>Refurbished Phones</h3>
-        <p>Verified refurbished phones at great prices.</p>
-      </div>
-      <div class="card">
-        <h3>Repair Services</h3>
-        <p>Screen, battery, and more — quick and reliable.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <div class="container">
-      <h3>Contact Us</h3>
-      <p>Phone / WhatsApp: <a href="https://wa.me/919887061896" target="_blank">+91 98870 61896</a></p>
-      <p>Email: <a href="mailto:psmobileshop98@gmail.com">psmobileshop98@gmail.com</a></p>
-      <p>Address: XXW6+9PR, Bawadi Gate, Fatehpur, Rajasthan 332301</p>
-      <!-- Google Map Embed -->
-      <iframe src="https://www.google.com/maps?q=27.9960320,74.9619112&z=15&output=embed" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-grid">
+  </header>  <main class="container">
+    <!-- Hero Slider -->
+    <section class="section hero" id="hero">
+      <div class="slides" id="slides">
+        <!-- Slide 1: OPPO style promo -->
+        <div class="slide active">
+          <div class="copy">
+            <span class="badge">5G DEAL</span>
+            <h2>OPPO K13x 5G</h2>
+            <div class="price">Starting from ₹10,649*</div>
+            <p>Up to ₹1,500 instant discount & 3 months no‑cost EMI with SBI & IDFC FIRST Bank cards.</p>
+            <div class="cta">
+              <a class="btn primary" href="products.html">Buy now</a>
+              <a class="btn ghost" href="#offers">View offers</a>
+            </div>
+          </div>
+          <div class="art">
+            <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=1200&auto=format&fit=crop" alt="OPPO phone" />
+          </div>
+        </div>
+        <!-- Slide 2: Google Pixel style promo -->
+        <div class="slide">
+          <div class="copy">
+            <span class="badge" style="background:#2563eb">LIMITED</span>
+            <h2>Google Pixel 10</h2>
+            <div class="price">From ₹49,999</div>
+            <p>Ask more of your phone — flagship camera and AI features, only at PS MOBILE.</p>
+            <div class="cta">
+              <a class="btn primary" href="products.html">Explore</a>
+              <a class="btn ghost" href="#exchange">Exchange & EMI</a>
+            </div>
+          </div>
+          <div class="art">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop" alt="Pixel promo" />
+          </div>
+        </div>
+        <!-- Slide 3: Vivo promo -->
+        <div class="slide">
+          <div class="copy">
+            <span class="badge" style="background:#059669">HOT</span>
+            <h2>vivo X200 Pro</h2>
+            <div class="price">Bank offers available</div>
+            <p>ZEISS camera tuning, fast charging and brilliant AMOLED display.</p>
+            <div class="cta">
+              <a class="btn primary" href="products.html">Shop vivo</a>
+              <a class="btn ghost" href="#offers">See details</a>
+            </div>
+          </div>
+          <div class="art">
+            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=1200&auto=format&fit=crop" alt="vivo promo" />
+          </div>
+        </div>
+        <div class="dots" id="dots"></div>
+      </div><!-- Offer tiles under slider -->
+  <div class="tiles">
+    <div class="tile">
+      <img alt="emi" src="https://img.icons8.com/ios-filled/50/discount--v1.png" width="36" height="36"/>
       <div>
-        <h4>PS MOBILE</h4>
-        <p>Phones • Accessories • Repairs</p>
-      </div>
-      <div>
-        <h4>Quick Links</h4>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <h4>Follow Us</h4>
-        <a href="#">Facebook</a>
-        <a href="#">Instagram</a>
-        <a href="#">YouTube</a>
+        <h4>Bank & EMI Offers</h4>
+        <p>Instant bank discounts & No‑cost EMI on select cards.</p>
       </div>
     </div>
-    <p class="copyright">© 2025 PS MOBILE</p>
-  </footer>
+    <div class="tile">
+      <img alt="store" src="https://img.icons8.com/ios-filled/50/shop.png" width="36" height="36"/>
+      <div>
+        <h4>Pick Your Location</h4>
+        <p>Fast in‑store pickup at Fatehpur, Rajasthan.</p>
+      </div>
+    </div>
+    <div class="tile">
+      <img alt="support" src="https://img.icons8.com/ios-filled/50/technical-support.png" width="36" height="36"/>
+      <div>
+        <h4>Service & Support</h4>
+        <p>Repairs, accessories & trade‑in assistance.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Floating WhatsApp Button -->
-  <a class="whatsapp-fab" href="https://wa.me/919887061896" target="_blank">Chat on WhatsApp</a>
+<!-- Featured Mobiles -->
+<section id="mobiles" class="section">
+  <h3>Featured Mobiles</h3>
+  <div class="grid">
+    <!-- Sample cards (replace images with your own) -->
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1510557880182-3d4d3cba35f6?q=80&w=900&auto=format&fit=crop" alt="OPPO K13x" />
+      <h5>OPPO K13x 5G</h5>
+      <div class="price-row"><span class="p">₹10,649*</span><a class="buy" href="products.html">Buy</a></div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1609250291996-fdebe6020a8b?q=80&w=900&auto=format&fit=crop" alt="vivo X200" />
+      <h5>vivo X200 Pro</h5>
+      <div class="price-row"><span class="p">Offer</span><a class="buy" href="products.html">Buy</a></div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1557180295-76eee20ae8aa?q=80&w=900&auto=format&fit=crop" alt="Infinix Note" />
+      <h5>Infinix Note 50s 5G+</h5>
+      <div class="price-row"><span class="p">₹15,900*</span><a class="buy" href="products.html">Buy</a></div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1510552776732-01acc9a4c31f?q=80&w=900&auto=format&fit=crop" alt="Pixel" />
+      <h5>Google Pixel 10</h5>
+      <div class="price-row"><span class="p">From ₹49,999</span><a class="buy" href="products.html">Buy</a></div>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1529618160092-2f8ccc8e087b?q=80&w=900&auto=format&fit=crop" alt="Accessories" />
+      <h5>Essential Accessories</h5>
+      <div class="price-row"><span class="p">Great prices</span><a class="buy" href="#">Shop</a></div>
+    </div>
+  </div>
+</section>
 
-  <script src="app.js"></script>
-</body>
+  </main>  <!-- Footer -->  <footer>
+    <div class="container foot">
+      <div>
+        <h6>PS MOBILE</h6>
+        <p>Trusted mobile shop in Fatehpur, Rajasthan. New phones, accessories, service & support.</p>
+        <p>Address: XXW6+9PR, Bawadi Gate, Fatehpur, Rajasthan 332301</p>
+      </div>
+      <div>
+        <h6>Customer</h6>
+        <p><a href="#orders">Track Orders</a></p>
+        <p><a href="#wishlist">Wishlist</a></p>
+        <p><a href="#returns">Returns & Exchange</a></p>
+      </div>
+      <div>
+        <h6>Support</h6>
+        <p><a href="#service">Service Requests</a></p>
+        <p><a href="#warranty">Warranty</a></p>
+        <p><a href="#contact">Contact us</a></p>
+      </div>
+      <div>
+        <h6>Reach us</h6>
+        <p>📞 <a href="tel:+919887061896">+91 98870 61896</a></p>
+        <p>🟢 <a target="_blank" href="https://wa.me/919887061896">WhatsApp chat</a></p>
+        <p>✉ <a href="mailto:psmobileshop98@gmail.com">psmobileshop98@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="container copyright">© <span id="yr"></span> PS MOBILE • All rights reserved.</div>
+  </footer>  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Build slider dots
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    const dotsWrap = document.getElementById('dots');
+    slides.forEach((_,i)=>{
+      const d=document.createElement('div');
+      d.className='dot'+(i===0?' active':'');
+      d.addEventListener('click',()=>go(i));
+      dotsWrap.appendChild(d);
+    });
+
+    let idx=0;let timer;
+    const go=(n)=>{
+      slides[idx].classList.remove('active');
+      dotsWrap.children[idx].classList.remove('active');
+      idx = (n+slides.length)%slides.length;
+      slides[idx].classList.add('active');
+      dotsWrap.children[idx].classList.add('active');
+      restart();
+    }
+    const next=()=>go(idx+1);
+    const restart=()=>{clearInterval(timer);timer=setInterval(next,5000)};
+    restart();
+  </script></body>
 </html>
