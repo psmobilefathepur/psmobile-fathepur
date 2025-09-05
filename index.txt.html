@@ -7,93 +7,72 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="navbar">
+  <!-- Top Bar -->
+  <header class="topbar">
     <div class="logo">PS MOBILE</div>
     <div class="search-bar">
-      <input type="text" placeholder="Search Mobiles & Accessories...">
+      <input type="text" placeholder="What are you looking for?">
+      <button>Search</button>
     </div>
-    <div class="nav-links">
-      <a href="#">Orders</a>
+    <div class="account-links">
+      <a href="#">My Account</a>
       <a href="#">Cart</a>
-      <a href="#">Wishlist</a>
-      <a href="#">Login</a>
     </div>
   </header>
 
-  <!-- Categories -->
-  <nav class="categories">
-    <a href="#mobiles">Mobiles</a>
-    <a href="#accessories">Accessories</a>
-    <a href="#offers">Offers</a>
+  <!-- Navigation -->
+  <nav class="main-nav">
+    <a href="#">Home</a>
+    <a href="#">Mobiles</a>
+    <a href="#">Accessories</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
   </nav>
 
-  <!-- Hero Slider -->
-  <section class="hero-slider">
-    <div class="slide active">
-      <img src="images/banner1.jpg" alt="Latest Mobile Offer">
-      <div class="caption">
-        <h2>Latest Smartphones</h2>
-        <p>Starting from ₹7,999 with EMI & Exchange Offers</p>
-        <a href="products.html" class="btn">Shop Now</a>
-      </div>
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="banner-content">
+      <h1>Redmi Y1</h1>
+      <p>LED Selfie light | Fingerprint sensor | Snapdragon 435 octa-core processor</p>
+      <h2>₹11,499</h2>
+      <a href="products.html" class="btn">BUY NOW</a>
     </div>
-    <div class="slide">
-      <img src="images/banner2.jpg" alt="Mobile Accessories">
-      <div class="caption">
-        <h2>Top Accessories</h2>
-        <p>Headphones, Chargers, Power Banks & More</p>
-        <a href="products.html" class="btn">Explore</a>
-      </div>
+    <div class="banner-image">
+      <img src="images/redmi-y1.jpg" alt="Redmi Y1">
     </div>
   </section>
 
-  <!-- Featured Mobiles -->
-  <section class="featured-products">
-    <h2>Featured Mobiles</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/vivo/X200.jpg" alt="Vivo X200">
-        <h3>Vivo X200</h3>
-        <p>Dimensity 9000, 50MP Triple Camera — ₹59,999</p>
-      </div>
-      <div class="product-card">
-        <img src="images/oppo/Reno14Pro5G.jpg" alt="Oppo Reno14 Pro 5G">
-        <h3>Oppo Reno14 Pro 5G</h3>
-        <p>AI Imaging, 50MP Sony Sensor, 6200 mAh — ₹32,999</p>
-      </div>
-      <div class="product-card">
-        <img src="images/infinix/Note50s5GPlus.jpg" alt="Infinix Note 50s 5G Plus">
-        <h3>Infinix Note 50s 5G Plus</h3>
-        <p>Dimensity 7300, 144Hz AMOLED — ₹15,999</p>
-      </div>
+  <!-- Product Categories Grid -->
+  <section class="product-categories">
+    <div class="category-card">
+      <img src="images/vivo/X200.jpg" alt="Vivo X200">
+      <h3>Vivo X200</h3>
+      <p>Dimensity 9000, 50MP Camera — ₹59,999</p>
+      <a href="products.html" class="btn">Shop Now</a>
     </div>
-  </section>
-
-  <!-- Popular Accessories -->
-  <section class="featured-accessories">
-    <h2>Popular Mobile Accessories</h2>
-    <div class="product-grid">
-      <div class="product-card">
-        <img src="images/accessories/earphones.jpg" alt="Wireless Earphones">
-        <h3>Wireless Earphones</h3>
-        <p>Bluetooth 5.3, noise cancellation — Starting at ₹1,499</p>
-      </div>
-      <div class="product-card">
-        <img src="images/accessories/charger.jpg" alt="Fast Charger 33W">
-        <h3>33W Fast Charger</h3>
-        <p>Universal Type-C fast charging adapter — ₹899</p>
-      </div>
-      <div class="product-card">
-        <img src="images/accessories/powerbank.jpg" alt="Power Bank 20000 mAh">
-        <h3>20,000 mAh Power Bank</h3>
-        <p>Dual USB output, quick charge — ₹1,699</p>
-      </div>
-      <div class="product-card">
-        <img src="images/accessories/case.jpg" alt="Mobile Case & Screen Guard">
-        <h3>Mobile Covers & Guards</h3>
-        <p>Durable back cover + tempered glass — Starting ₹499</p>
-      </div>
+    <div class="category-card">
+      <img src="images/oppo/Reno14Pro5G.jpg" alt="Oppo Reno14 Pro 5G">
+      <h3>Oppo Reno14 Pro 5G</h3>
+      <p>AI Camera, 6200mAh — ₹32,999</p>
+      <a href="products.html" class="btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/infinix/Note50s5GPlus.jpg" alt="Infinix Note 50s 5G Plus">
+      <h3>Infinix Note 50s</h3>
+      <p>144Hz AMOLED — ₹15,999</p>
+      <a href="products.html" class="btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/accessories/earphones.jpg" alt="Wireless Earphones">
+      <h3>Wireless Earphones</h3>
+      <p>Bluetooth 5.3, Noise Cancellation — ₹1,499</p>
+      <a href="products.html" class="btn">Shop Now</a>
+    </div>
+    <div class="category-card">
+      <img src="images/accessories/charger.jpg" alt="Fast Charger">
+      <h3>Fast Charger 33W</h3>
+      <p>Type-C Fast Charging — ₹899</p>
+      <a href="products.html" class="btn">Shop Now</a>
     </div>
   </section>
 
@@ -102,7 +81,5 @@
     <p>© 2025 PS MOBILE — XXW6+9PR, Bawadi Gate, Fatehpur, Rajasthan 332301</p>
     <p>Contact: +91 98870 61896 | WhatsApp: +91 98870 61896 | Email: psmobileshop98@gmail.com</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
